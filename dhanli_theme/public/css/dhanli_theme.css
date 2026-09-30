@@ -1,0 +1,63 @@
+/* =====================================================================
+   Dhanli Theme  —  brand navy #0E1C63, accent royal blue #2547E6
+   v1 STARTER. After installing on a TEST site, open DevTools, confirm the
+   exact CSS variable names for your Frappe/ERPNext version, and refine below.
+   This file is pure CSS — it changes appearance only, never data.
+   ===================================================================== */
+
+:root,
+:root[data-theme="light"] {
+  /* Frappe theme variables (names can vary by version — verify & adjust) */
+  --primary: #0E1C63;
+  --primary-color: #0E1C63;
+  --btn-primary: #0E1C63;
+  --text-on-primary: #ffffff;
+
+  --blue-600: #0E1C63;
+  --blue-500: #2547E6;
+  --blue-400: #4a63e8;
+  --blue-100: #e7ebfa;
+  --blue-50:  #f2f4fd;
+
+  --sidebar-select-color: #e7ebfa;
+}
+
+/* Top navbar */
+header.navbar,
+.navbar {
+  background-color: #0E1C63 !important;
+}
+.navbar .nav-link,
+.navbar a,
+.navbar .link-item,
+.navbar .navbar-brand {
+  color: #ffffff !important;
+}
+
+/* Primary buttons */
+.btn-primary {
+  background-color: #0E1C63 !important;
+  border-color: #0E1C63 !important;
+  color: #ffffff !important;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #14237a !important;
+  border-color: #14237a !important;
+}
+
+/* Links & accents */
+a,
+.text-primary { color: #2547E6; }
+a:hover { color: #0E1C63; }
+
+/* Sidebar active item */
+.sidebar-item.selected,
+.standard-sidebar-item.selected {
+  background-color: #e7ebfa !important;
+  color: #0E1C63 !important;
+}
+
+/* NOTE: the app-launcher module tiles (rounded blue squares) may use their
+   own fill/background. If they don't recolour with the variables above,
+   inspect one tile and add a targeted rule here after testing. */

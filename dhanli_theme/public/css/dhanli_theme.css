@@ -61,3 +61,18 @@ a:hover { color: #0E1C63; }
 /* NOTE: the app-launcher module tiles (rounded blue squares) may use their
    own fill/background. If they don't recolour with the variables above,
    inspect one tile and add a targeted rule here after testing. */
+
+
+/* ===== Dhanli v2 — app-launcher (workspace) tiles ===== */
+
+/* Module captions -> Dhanli Navy */
+.desktop-icon .icon-caption,
+.desktop-icon .icon-caption * {
+  color: #0E1C63 !important;
+}
+
+/* Icons are SVG image files (brand-blue baked in).
+   This filter pushes them toward navy — experimental, easy to remove. */
+.desktop-icon img.app-icon {
+  filter: brightness(0.5) saturate(1.3) hue-rotate(15deg);
+}

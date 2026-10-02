@@ -1,78 +1,65 @@
-/* =====================================================================
-   Dhanli Theme  —  brand navy #0E1C63, accent royal blue #2547E6
-   v1 STARTER. After installing on a TEST site, open DevTools, confirm the
-   exact CSS variable names for your Frappe/ERPNext version, and refine below.
-   This file is pure CSS — it changes appearance only, never data.
-   ===================================================================== */
+/* ================================================================
+   Dhanli Theme  —  v1.0.0
+   A clean navy brand theme for the Frappe / ERPNext desk.
 
+   Palette
+     Navy  (primary) .... #0E1C63
+     Royal (accent) ..... #2547E6
+     Slate (canvas) ..... #EDF0F4
+     Cream (fields) ..... #EFE8D9
+
+   Approach
+     Redefines Frappe's design tokens (CSS variables) so the theme
+     cascades across the whole desk with NO element-level overrides,
+     except the top navbar — Frappe hard-codes it white with no
+     variable, so that one line is a deliberate, commented override.
+
+     Light mode only. Dark mode is deliberately left untouched: its
+     [data-theme="dark"] rules take priority, so dark users keep
+     Frappe's native dark palette.
+
+   Publisher : Sapian ERP
+   License   : MIT
+   ================================================================ */
+
+/* ---- 1 · Brand palette · single source of truth ---------------- */
+:root {
+  --dhanli-navy:      #0E1C63;
+  --dhanli-royal:     #2547E6;
+  --dhanli-slate:     #EDF0F4;
+  --dhanli-cream:     #EFE8D9;
+  --dhanli-navy-tint: #E7EBFA;   /* selected-row background */
+}
+
+/* ---- 2 · Frappe design tokens · light / default ---------------- */
 :root,
-:root[data-theme="light"] {
-  /* Frappe theme variables (names can vary by version — verify & adjust) */
-  --primary: #0E1C63;
-  --primary-color: #0E1C63;
-  --btn-primary: #0E1C63;
-  --text-on-primary: #ffffff;
-
-  --blue-600: #0E1C63;
-  --blue-500: #2547E6;
-  --blue-400: #4a63e8;
-  --blue-100: #e7ebfa;
-  --blue-50:  #f2f4fd;
-
-  --sidebar-select-color: #e7ebfa;
+[data-theme="light"] {
+  --primary:    var(--dhanli-navy);    /* buttons & active controls */
+  --bg-color:   var(--dhanli-slate);   /* page canvas               */
+  --fg-color:   #ffffff;               /* cards / elevated surfaces  */
+  --card-bg:    #ffffff;
+  --control-bg: var(--dhanli-cream);   /* input / field fill         */
 }
 
-/* Top navbar */
-header.navbar,
+/* ---- 3 · Top navbar · the Dhanli brand bar --------------------- */
 .navbar {
-  background-color: #0E1C63 !important;
-}
-.navbar .nav-link,
-.navbar a,
-.navbar .link-item,
-.navbar .navbar-brand {
-  color: #ffffff !important;
+  background-color: var(--dhanli-navy) !important;
 }
 
-/* Primary buttons */
-.btn-primary {
-  background-color: #0E1C63 !important;
-  border-color: #0E1C63 !important;
-  color: #ffffff !important;
-}
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: #14237a !important;
-  border-color: #14237a !important;
-}
-
-/* Links & accents */
+/* ---- 4 · Links & accent text ----------------------------------- */
 a,
-.text-primary { color: #2547E6; }
-a:hover { color: #0E1C63; }
+.text-primary { color: var(--dhanli-royal); }
+a:hover       { color: var(--dhanli-navy); }
 
-/* Sidebar active item */
+/* ---- 5 · Sidebar · selected item ------------------------------- */
 .sidebar-item.selected,
 .standard-sidebar-item.selected {
-  background-color: #e7ebfa !important;
-  color: #0E1C63 !important;
+  background-color: var(--dhanli-navy-tint);
+  color: var(--dhanli-navy);
 }
 
-/* NOTE: the app-launcher module tiles (rounded blue squares) may use their
-   own fill/background. If they don't recolour with the variables above,
-   inspect one tile and add a targeted rule here after testing. */
-
-
-/* ===== Dhanli v2 — app-launcher (workspace) tiles ===== */
-
-/* Module captions -> Dhanli Navy */
+/* ---- 6 · Workspace module captions ----------------------------- */
 .desktop-icon .icon-caption,
 .desktop-icon .icon-caption * {
-  color: #0E1C63 !important;
-}
-
-/* Icons are SVG image files (brand-blue baked in).
-   This filter pushes them toward navy — experimental, easy to remove. */
-.desktop-icon img.app-icon {
-  filter: brightness(0.5) saturate(1.3) hue-rotate(15deg);
+  color: var(--dhanli-navy);
 }
